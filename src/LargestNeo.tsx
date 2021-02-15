@@ -2,7 +2,7 @@ import { useLargestNeoQuery } from "./generated/graphql";
 import LargestNeoChart from "./LargestNeoChart";
 import { DatePicker } from "@material-ui/pickers";
 import { useState } from "react";
-import { CircularProgress } from "@material-ui/core";
+import Spinner from "./Spinner";
 export default function LargestNeo() {
   const [selectedStartYear, handleStartYearChange] = useState<Date | null>(
     new Date("2019-01-01")
@@ -17,9 +17,7 @@ export default function LargestNeo() {
     },
   });
   return loading ? (
-    <div style={{ display: "flex", justifyContent: "center", padding: "3rem" }}>
-      <CircularProgress />
-    </div>
+    <Spinner />
   ) : (
     <>
       <h2>Largest NEO by the month</h2>

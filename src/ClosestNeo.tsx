@@ -2,6 +2,7 @@ import "./ClosestNeo.css";
 import { useState } from "react";
 import { DatePicker } from "@material-ui/pickers";
 import { useClosestNeoQuery } from "./generated/graphql";
+import Spinner from "./Spinner";
 export default function ClosestNeo() {
   const [selectedStartDate, handleStartDateChange] = useState<Date | null>(
     new Date("2015-12-19")
@@ -15,25 +16,23 @@ export default function ClosestNeo() {
       endDate: selectedEndDate?.toISOString()?.slice(0, 10) ?? "2015-12-26",
     },
   });
-  return (
+  return loading ? (
+    <Spinner />
+  ) : (
     <div className="closest-neo">
       <h2>Closest NEO</h2>
-      {!loading && (
-        <DatePicker
-          label="Start date"
-          format="yyyy-MM-dd"
-          value={selectedStartDate}
-          onChange={(date) => handleStartDateChange(date)}
-        />
-      )}
-      {!loading && (
-        <DatePicker
-          label="End date"
-          format="yyyy-MM-dd"
-          value={selectedEndDate}
-          onChange={(date) => handleEndDateChange(date)}
-        />
-      )}
+      <DatePicker
+        label="Start date"
+        format="yyyy-MM-dd"
+        value={selectedStartDate}
+        onChange={(date) => handleStartDateChange(date)}
+      />
+      <DatePicker
+        label="End date"
+        format="yyyy-MM-dd"
+        value={selectedEndDate}
+        onChange={(date) => handleEndDateChange(date)}
+      />
       <div>
         {data && !error && (
           <div className="closest-neo__data">
