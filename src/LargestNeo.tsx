@@ -1,3 +1,3 @@
 export default function LargestNeo() {
-  <div className="largest-neo"></div>;
+  return <div className="largest-neo"></div>;
 }

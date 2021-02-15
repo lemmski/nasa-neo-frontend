@@ -1,5 +1,5 @@
 import React from "react";
-import ClosestNeo from "./LargestNeo";
+import ClosestNeo from "./ClosestNeo";
 import LargestNeo from "./LargestNeo";
 
 function App() {

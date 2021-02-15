@@ -1,17 +1,16 @@
-query closestNeo($startDate: String!, $endDate: String!) {                                                                                                                                                
-  closestNearEarthObject(startDate: $startDate, endDate: $endDate) {                                                                                                                                      
-    absolute_magnitude_h                                                                                                                                                                                  
-      name                                                                                                                                                                                                  
-      id                                                                                                                                                                                                    
-      close_approach_data {                                                                                                                                                                                 
-        miss_distance {                                                                                                                                                                                     
-          astronomical                                                                                                                                                                                      
-        }                                                                                                                                                                                                   
-      }                                                                                                                                                                                                     
+query closestNeo($startDate: String!, $endDate: String!) {
+  closestNearEarthObject(startDate: $startDate, endDate: $endDate) {
+    absolute_magnitude_h
+    name                                                                                                 id 
+    close_approach_data {
+      miss_distance {
+        astronomical
+      }
+    }
   }         
 }
 
-query largestNeo($startYear: String!, $endDate: String!) {
+query largestNeo($startYear: String!, $endYear: String!) {
   largestNearEarthObjectsByMonth(startYear: $startYear, endYear: $endYear) {
     absolute_magnitude_h
     name
