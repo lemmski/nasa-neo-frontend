@@ -5,7 +5,7 @@ import { useState } from "react";
 import Spinner from "./Spinner";
 export default function LargestNeo() {
   const [selectedStartYear, handleStartYearChange] = useState<Date | null>(
-    new Date("2019-01-01")
+    new Date("2017-01-01")
   );
   const [selectedEndYear, handleEndYearChange] = useState<Date | null>(
     new Date("2019-12-31")
