@@ -2,9 +2,14 @@ query closestNeo($startDate: String!, $endDate: String!) {
   closestNearEarthObject(startDate: $startDate, endDate: $endDate) {
     absolute_magnitude_h
     name                                                                                                 id 
+    nasa_jpl_url
+    is_potentially_hazardous_asteroid
+    is_sentry_object
     close_approach_data {
+      close_approach_date
       miss_distance {
         astronomical
+        kilometers
       }
     }
   }         
@@ -14,6 +19,7 @@ query largestNeo($startYear: String!, $endYear: String!) {
   largestNearEarthObjectsByMonth(startYear: $startYear, endYear: $endYear) {
     absolute_magnitude_h
     name
+    nasa_jpl_url
     close_approach_data {
       close_approach_date
     }
